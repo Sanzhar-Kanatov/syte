@@ -1,0 +1,386 @@
+
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Санжар | CS Player</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #080b12;
+    color: white;
+    overflow-x: hidden;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 8%;
+    background: #0c111b;
+    border-bottom: 1px solid #202a38;
+}
+
+.logo {
+    color: #00ff99;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #00ff99;
+}
+
+.hero {
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px 20px;
+    background:
+      radial-gradient(ellipse at center, #12332c 0%, #080b12 65%);
+}
+
+.avatar {
+    width: 140px;
+    height: 140px;
+    border: 3px solid #00ff99;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 65px;
+    background: #101923;
+    box-shadow: 0 0 35px #00ff9955;
+    animation: float 3s ease-in-out infinite;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 7vw, 70px);
+    margin: 25px 0 10px;
+}
+
+.hero h1 span {
+    color: #00ff99;
+}
+
+.hero p {
+    color: #b0bac8;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 28px;
+}
+
+.btn {
+    padding: 14px 25px;
+    border-radius: 8px;
+    border: 1px solid #00ff99;
+    background: #00ff99;
+    color: #06120d;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px #00ff9970;
+}
+
+.btn.secondary {
+    background: transparent;
+    color: #00ff99;
+}
+
+section {
+    padding: 75px 8%;
+}
+
+.title {
+    text-align: center;
+    font-size: 34px;
+    margin-bottom: 35px;
+}
+
+.title span {
+    color: #00ff99;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+}
+
+.card {
+    background: #101722;
+    border: 1px solid #263242;
+    border-radius: 15px;
+    padding: 28px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: #00ff99;
+}
+
+.card .emoji {
+    font-size: 38px;
+    margin-bottom: 18px;
+}
+
+.card h3 {
+    color: #00ff99;
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: #aeb8c7;
+    line-height: 1.7;
+}
+
+table {
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+    border-collapse: collapse;
+    background: #101722;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 17px;
+    border-bottom: 1px solid #283343;
+    text-align: left;
+}
+
+th {
+    color: #00ff99;
+    background: #151f2c;
+}
+
+tr:hover td {
+    background: #17251f;
+}
+
+.contact {
+    text-align: center;
+    background: #0d131d;
+}
+
+.contact p {
+    color: #aeb8c7;
+    margin-bottom: 20px;
+}
+
+footer {
+    padding: 25px;
+    text-align: center;
+    color: #8190a2;
+    border-top: 1px solid #202a38;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: 0.7s;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#topBtn {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    display: none;
+    z-index: 10;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    background: #00ff99;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    nav a {
+        margin: 0 7px;
+        font-size: 14px;
+    }
+
+    section {
+        padding: 55px 6%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">SANJAR.exe</div>
+    <nav>
+        <a href="#home">Басты бет</a>
+        <a href="#about">Мен туралы</a>
+        <a href="#stats">Статистика</a>
+        <a href="#contact">Байланыс</a>
+    </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+    <div class="avatar">🎮</div>
+    <h1>Сәлем, мен <span>Санжармын!</span></h1>
+    <p>🎯 CS ойыншысы | 💻 Болашақ бағдарламашы<br>
+       Ойын — менің әлемім. Жеңіс — менің мақсатым!</p>
+
+    <div class="buttons">
+        <a class="btn" href="#about">Мен туралы</a>
+        <button class="btn secondary" onclick="showMessage()">
+            Мені таны!
+        </button>
+    </div>
+</section>
+
+<section id="about" class="reveal">
+    <h2 class="title">Мен <span>туралы</span></h2>
+
+    <div class="cards">
+        <div class="card">
+            <div class="emoji">👤</div>
+            <h3>Менің атым</h3>
+            <p>Менің атым — Санжар. Өзіме жаңа мақсаттар қойып, дамығанды ұнатамын.</p>
+        </div>
+
+        <div class="card">
+            <div class="emoji">🔥</div>
+            <h3>Менің хоббиім</h3>
+            <p>Бос уақытымда компьютер ойнаймын және жаңа нәрселерді үйренемін.</p>
+        </div>
+
+        <div class="card">
+            <div class="emoji">🎯</div>
+            <h3>Менің мақсатым</h3>
+            <p>CS ойынында мықты ойыншы болу және болашақта жақсы бағдарламашы атану.</p>
+        </div>
+    </div>
+</section>
+
+<section id="stats" class="reveal">
+    <h2 class="title">Ойыншы <span>профилі</span></h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Көрсеткіш</th>
+                <th>Мәлімет</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Ойыншы аты</td><td>Sanjar</td></tr>
+            <tr><td>Сүйікті ойын</td><td>Counter-Strike 2</td></tr>
+            <tr><td>Сүйікті қару</td><td>AK-47 🔫</td></tr>
+            <tr><td>Сүйікті карта</td><td>Dust2 🗺️</td></tr>
+            <tr><td>Мәртебе</td><td>🟢 Online</td></tr>
+            <tr><td>Мақсат</td><td>PRO PLAYER 🏆</td></tr>
+        </tbody>
+    </table>
+</section>
+
+<section class="contact reveal" id="contact">
+    <h2 class="title">GG, <span>Санжар!</span></h2>
+    <p>Жеңіліс — тәжірибе. Жеңіс — нәтиже. Алға!</p>
+    <button class="btn" onclick="sayGG()">GG бас! 🎮</button>
+    <p id="message" style="margin-top:22px;"></p>
+</section>
+</main>
+
+<footer>
+    © 2026 SANJAR.exe | Барлық құқықтар қорғалған ⚡
+</footer>
+
+<button id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    ↑
+</button>
+
+<script>
+function showMessage() {
+    alert("Сәлем! Мен Санжармын! 🎮 CS — менің сүйікті ойыным. GG, WP!");
+}
+
+function sayGG() {
+    const messages = [
+        "🔥 GG WP, Санжар!",
+        "🎯 Сенің келесі мақсатың — жеңіс!",
+        "🏆 Нағыз ойыншы ешқашан берілмейді!",
+        "⚡ Headshot! Тамаша ойын!"
+    ];
+
+    document.getElementById("message").textContent =
+        messages[Math.floor(Math.random() * messages.length)];
+}
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+}, { threshold: 0.15 });
+
+document.querySelectorAll(".reveal").forEach(el => {
+    observer.observe(el);
+});
+
+window.addEventListener("scroll", () => {
+    document.getElementById("topBtn").style.display =
+        window.scrollY > 300 ? "block" : "none";
+});
+</script>
+
+</body>
+</html>
